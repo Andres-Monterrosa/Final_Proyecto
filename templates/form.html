@@ -1,0 +1,14 @@
+{% extends 'home.html' %} {% load bootstrap5 %} {# Load CSS and JavaScript #} {%
+bootstrap_css %} {% bootstrap_javascript %} {% block body %}
+
+<div class="card">
+  <div class="card-body">
+    <form method="post">
+      {% csrf_token %} {% bootstrap_form form %}
+
+      <button type="submit" class="btn btn-success">Enviar</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

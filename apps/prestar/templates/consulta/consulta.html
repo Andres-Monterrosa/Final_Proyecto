@@ -1,0 +1,32 @@
+{% extends 'home.html' %} {% block body %}
+<div class="card w-25 mx-auto my-3">
+  <div class="card-body">
+    <form method="post">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="fechai">Fecha Inicio</label>
+        <input type="date" id="fechai" name="fechai" class="w-75" />
+      </div>
+      <div class="mb-3">
+        <label for="fechaf">Fecha Final</label>
+        <input type="date" id="fechaf" name="fechaf" class="w-75" />
+      </div>
+      <select name="consulta_type" id="consulta_type" class="form-select">
+        <option value="1">Consulta 1</option>
+        <option value="2">Consulta 2</option>
+        <option value="3">Consulta 3</option>
+      </select>
+      <button class="btn btn-success mt-3 w-75" type="submit">Consultar</button>
+    </form>
+  </div>
+</div>
+
+<div class="card w-25 mx-auto">
+  <div class="card-body bg-success">
+    <h1 class="text-light">La respuesta de la consulta es:</h1>
+    {% for i in response %}
+    <p class="text-light">{{i}}</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

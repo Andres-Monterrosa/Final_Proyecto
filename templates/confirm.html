@@ -1,0 +1,14 @@
+{% extends 'home.html' %}
+
+{% block body %}
+<div class="card">
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            <h1>Desea eliminar esta informacion</h1>
+            <button class="btn btn-primary" type="submit">SI</button>
+            <a href="{{redirect}}" class="btn btn-danger" >NO</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

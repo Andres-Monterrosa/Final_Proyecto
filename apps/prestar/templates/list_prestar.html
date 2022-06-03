@@ -1,0 +1,47 @@
+{% extends 'home.html' %} {% block body %}
+
+<div class="card w-75 mx-auto my-3">
+  <div class="card-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">fecha dev</th>
+          <th scope="col">fecha prestamo</th>
+          <th scope="col">Ejemplares</th>
+          <th scope="col">Usuarios</th>
+          <th scope="col">Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in object_list %}
+        <tr>
+          <th scope="row">{{i.id}}</th>
+          <td>{{i.fecha_dev}}</td>
+          <td>{{i.fecha_pres}}</td>
+          <td>{{i.ejemplares}}</td>
+          <td>{{i.usuarios}}</td>
+          <td>
+            <a
+              href="{% url 'prestar:prestar_update' i.id %}"
+              class="btn btn-success"
+              ><i class="bi bi-pencil"></i
+            ></a>
+            <a
+              href="{% url 'prestar:prestar_delete' i.id %}"
+              class="btn btn-danger"
+              ><i class="bi bi-trash-fill"></i
+            ></a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+      <tfoot>
+        <a href="{% url 'prestar:prestar_crear' %}" class="btn btn-primary"
+          >Crear</a
+        >
+      </tfoot>
+    </table>
+  </div>
+</div>
+{% endblock %}
